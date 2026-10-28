@@ -9,7 +9,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const PORT = Number(process.env.PORT) || 5000;
-const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:5173";
+const CLIENT_ORIGIN = [
+  "http://localhost:5173",
+  "https://chat-app-one-neon-51.vercel.app"
+];
 const MAX_HISTORY = 100;
 const MAX_MESSAGE_LENGTH = 1000;
 
@@ -161,7 +164,7 @@ httpServer.listen(PORT, () => {
   console.log("======================================");
   console.log(" CONNECT — MULTITHREADED CHAT SERVER ");
   console.log(` Server: http://localhost:${PORT}`);
-  console.log(` Client origin: ${CLIENT_ORIGIN}`);
+  console.log(` Client origins: ${CLIENT_ORIGIN.join(", ")}`);
   console.log(" Message worker thread: running");
   console.log("======================================");
 });
